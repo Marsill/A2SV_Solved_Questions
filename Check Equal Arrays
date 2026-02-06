@@ -1,0 +1,13 @@
+from collections import Counter
+class Solution:
+    def checkEqual(self, a, b) -> bool:
+        a_dict = Counter(a)
+        
+        for i in b:
+            if i in a_dict:
+                a_dict[i] -= 1
+                if a_dict[i] == 0:
+                    del a_dict[i]
+            else:
+                return False
+        return False if a_dict else True
