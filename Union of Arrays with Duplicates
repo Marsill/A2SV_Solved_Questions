@@ -1,0 +1,6 @@
+class Solution:    
+    def findUnion(self, a, b):
+        a_s = set(a)
+        b_s = set(b)
+        result = a_s | b_s
+        return result
