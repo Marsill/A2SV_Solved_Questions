@@ -1,0 +1,15 @@
+from collections import Counter
+class Solution:
+    #Function to check if a is a subset of b.
+    def isSubset(self, a, b):
+        b_dict = Counter(b)
+        for num in a:
+            if num in b_dict:
+                b_dict[num] -= 1
+                if b_dict[num] == 0:
+                    del b_dict[num]
+                    
+        if not b_dict:
+            return True
+        else:
+            return False
