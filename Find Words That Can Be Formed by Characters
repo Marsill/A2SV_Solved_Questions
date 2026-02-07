@@ -1,0 +1,19 @@
+class Solution:
+    def countCharacters(self, words: List[str], chars: str) -> int:
+        count = 0 
+        for word in words:
+            char_dict = Counter(chars)
+            valid = True
+            for ch in word:
+                if ch in char_dict:
+                    char_dict[ch] -= 1
+                    if char_dict[ch] == 0:
+                        del char_dict[ch]
+
+                else:
+                    valid = False
+                    break 
+            if valid:
+                count += len(word)
+            print(count)
+        return count
