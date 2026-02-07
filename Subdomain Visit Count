@@ -1,0 +1,15 @@
+class Solution:
+    def subdomainVisits(self, cpdomains: List[str]) -> List[str]:
+        count = {}
+        
+        for s in cpdomains:
+            num, domain = s.split()
+            num = int(num)
+            subdomain = domain.split('.')
+            for i in range(len(subdomain)):
+                sub = ".".join(subdomain[i:])
+                count[sub] = count.get(sub, 0) + num
+        result = []
+        for k, v in count.items():
+            result.append(f"{v} {k}")
+        return result
