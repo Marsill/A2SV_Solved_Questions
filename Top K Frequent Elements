@@ -1,0 +1,11 @@
+class Solution:
+    def topKFrequent(self, nums: List[int], k: int) -> List[int]:
+        result = []
+        nums_freq = Counter(nums)
+
+        for i in range(k):
+            max_key = max(nums_freq, key=nums_freq.get)
+            result.append(max_key)
+            del nums_freq[max_key]
+
+        return result
