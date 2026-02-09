@@ -1,0 +1,14 @@
+class Solution:
+    def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
+        result = []
+        if strs == "":
+            return [""]
+        data = defaultdict(list)
+
+        for word in strs:
+            val = str(sorted(word))
+            data[val].append(word)
+        
+        for k, v in data.items():
+            result.append(v)
+        return result
