@@ -1,0 +1,8 @@
+class Solution:
+    def restoreString(self, s: str, indices: List[int]) -> str:
+        shuffle = {indices[i] : s[i] for i in range(len(indices))}
+        result = ""
+        sorted_ind = sorted(indices)
+        for ind in sorted_ind:
+            result += shuffle[ind]
+        return result
