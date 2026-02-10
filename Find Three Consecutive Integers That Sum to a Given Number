@@ -1,0 +1,8 @@
+class Solution:
+    def sumOfThree(self, num: int) -> List[int]:
+        add = 0
+        n = num // 3
+        add = (n-1)  + (n+1) +n
+        if add  == num:
+            return [(n-1), n, (n+1) ]
+        return []
