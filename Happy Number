@@ -1,0 +1,16 @@
+class Solution:
+    def isHappy(self, n: int) -> bool:
+        arr = []
+        while n != 1:
+            arr.append(n)
+            num = 0
+            while n > 0:
+                num2 = (n % 10 ) 
+                num += num2 ** 2 # 9 -> 81
+                n = n // 10
+            if num in arr:
+                return False
+
+            arr.append(num)
+            n = num 
+        return True
