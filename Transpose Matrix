@@ -1,0 +1,14 @@
+class Solution:
+    def transpose(self, matrix: List[List[int]]) -> List[List[int]]:
+        new_matrix = [[]] 
+        row = len(matrix)
+        col = len(matrix[0]) if row > 0 else 0
+        
+        
+        new_matrix = [[0 for _ in range(row)] for _ in range(col)]
+        print(new_matrix)
+        for c in range(col):
+            for r in range(row):
+                new_matrix[c][r] = matrix[r][c]
+
+        return new_matrix 
