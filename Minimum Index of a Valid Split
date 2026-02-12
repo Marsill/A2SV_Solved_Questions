@@ -1,0 +1,20 @@
+class Solution:
+    def minimumIndex(self, nums: List[int]) -> int:
+        left = Counter()
+        right = Counter(nums)
+
+        dominant, total_freq = max(right.items(), key=lambda x: x[1])
+        
+        if total_freq * 2 <= len(nums):
+            return -1
+
+        for i, num in enumerate(nums):
+            left[num] += 1
+            right[num] -= 1
+
+            left_size = i + 1
+            right_size = len(nums) - left_size
+
+            if 2 * left[dominant] > left_size and 2 * right[dominant] > right_size:
+                return i
+        return -1
