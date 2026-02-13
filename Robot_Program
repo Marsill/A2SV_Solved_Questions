@@ -1,0 +1,42 @@
+t = int(input())
+for _ in range(t):
+    n, x, k = map(int, input().split())
+    command = input()
+    restart_needed = True
+    operation = 0
+    operation1 = 0
+    zero_count = 0
+    tm1 = tm2 = 0
+    while restart_needed:
+        restart_needed = False
+        for ch in command:
+            if operation >= k:
+                break
+
+            if ch == 'L':
+                x -= 1
+            elif ch == 'R':
+                x += 1
+                
+            operation += 1
+            operation1 += 1
+            
+            if x == 0:
+                zero_count += 1
+                if zero_count == 1:
+                    tm1 = operation1
+                    operation1 = 0
+
+                if zero_count == 2:
+                    tm2 = operation1
+                    restart_needed = False
+                 
+                else:
+                    restart_needed = True
+                break
+    if tm1 and tm2:
+        print(1+ ((k - tm1)// tm2))
+    elif tm1:
+        print(1)
+    else:
+        print(0)
