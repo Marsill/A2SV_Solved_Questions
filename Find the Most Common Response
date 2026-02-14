@@ -1,0 +1,13 @@
+class Solution:
+    def findCommonResponse(self, responses: List[List[str]]) -> str:
+        f = Counter()
+        for response in responses:
+            for s in set(response):
+                f[s] += 1
+        best = ""
+        for key in f.keys():
+            if f[key] > f[best]:
+                best = key
+            if f[key] == f[best] and best > key:
+                best = key
+        return best
