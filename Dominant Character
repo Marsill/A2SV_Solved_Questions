@@ -1,0 +1,18 @@
+t = int(input())
+for _ in range(t):
+    num = int(input())
+    n = input()
+    if 'aa' in n:
+        print(2)
+    elif 'aba' in n:
+        print(3)
+    elif 'aca' in n:
+        print(3)
+    elif 'abca' in n:
+        print(4)
+    elif 'acba' in n:
+        print(4)
+    elif 'abbacca' in n or 'accabba' in n:
+        print(7)
+    else:
+        print(-1)
