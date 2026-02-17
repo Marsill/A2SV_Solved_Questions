@@ -1,0 +1,19 @@
+class Solution:
+    def spiralMatrixIII(self, rows: int, cols: int, rStart: int, cStart: int) -> List[List[int]]:
+        result = []
+        dirs = [(0,1),(1,0),(0,-1),(-1,0)]  
+        step = 1
+        r, c = rStart, cStart
+        result.append([r,c])
+
+        while len(result) < rows * cols:
+            for d in dirs:
+                for _ in range(step):
+                    r += d[0]
+                    c += d[1]
+                    if 0 <= r < rows and 0 <= c < cols:
+                        result.append([r,c])
+                if d == dirs[1] or d == dirs[3]:
+                    step += 1
+
+        return result
