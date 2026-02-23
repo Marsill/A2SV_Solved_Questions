@@ -1,0 +1,11 @@
+class Solution:
+    def customSortString(self, order: str, s: str) -> str:
+        s_list = list(s)
+        res = ''
+
+        for i in range(len(order)):
+            while order[i] in s_list:
+                res += order[i]
+                s_list.remove(order[i])
+        res += ''.join(s_list)
+        return res
