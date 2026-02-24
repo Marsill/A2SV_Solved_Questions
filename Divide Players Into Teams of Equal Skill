@@ -1,0 +1,15 @@
+class Solution:
+    def dividePlayers(self, skill: List[int]) -> int:
+        skill.sort()
+        i, j = 0, len(skill)-1
+        total_skill = max(skill) + min(skill)
+        prod = []
+        while i < j:
+            if skill[i] + skill[j] == total_skill:
+                prod.append(skill[i] * skill[j])
+            else:
+                return -1
+            i += 1
+            j -= 1
+
+        return sum(prod)
