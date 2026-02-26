@@ -1,0 +1,16 @@
+n, s = map(int, input().split())
+num = list(map(int, input().split()))
+
+window = 0
+left = 0
+min_seg = 0
+
+for right in range(n):
+    window += num[right]
+
+    while window >= s:
+        min_seg += (n - right)
+        window -= num[left]
+        left += 1
+
+print(min_seg)
