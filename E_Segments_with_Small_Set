@@ -1,0 +1,19 @@
+from collections import defaultdict
+
+n, k = map(int, input().split())
+a = list(map(int, input().split()))
+
+window = defaultdict(int)
+l = 0
+min_seg = 0
+
+
+for r in range(n):
+    window[a[r]] += 1
+    while a[r] in window and len(window) > k:
+        window[a[l]] -= 1
+        if window[a[l]] == 0:
+            del window[a[l]]
+        l += 1
+    min_seg += r-l+1
+print(min_seg)
