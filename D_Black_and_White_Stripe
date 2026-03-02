@@ -1,0 +1,23 @@
+t = int(input())
+
+for _ in range(t):
+    n , k = map(int, input().split())
+    stripe = input()
+
+    white_count = 0
+    for i in range(k):
+        if stripe[i] == 'W':
+            white_count += 1
+
+    ans = white_count
+
+    for i in range(k, n):
+        if stripe[i - k] == 'W':
+            white_count -= 1
+        
+        if stripe[i] == 'W':
+            white_count += 1
+        
+        ans = min(ans, white_count)
+
+    print(ans)
