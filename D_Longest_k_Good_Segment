@@ -1,0 +1,26 @@
+from collections import defaultdict
+n, k = map(int, input().split())
+a = list(map(int, input().split()))
+
+count = defaultdict(int)
+left = 0
+max_len = 0
+ans = (0, 0)
+distinct = 0
+
+for right in range(n):
+    if count[a[right]] == 0:
+        distinct += 1
+    count[a[right]] += 1
+    
+    while distinct > k:
+        count[a[left]] -= 1
+        if count[a[left]] == 0:
+            distinct -= 1
+        left += 1
+    
+    if right - left + 1 > max_len:
+        max_len = right - left + 1
+        ans = (left, right)
+
+print(ans[0]+1, ans[1]+1)
