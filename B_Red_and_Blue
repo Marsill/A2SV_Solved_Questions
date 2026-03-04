@@ -1,0 +1,18 @@
+t = int(input())
+for _ in range(t):
+    n = int(input())
+    red = list(map(int, input().split()))
+    m = int(input())
+    blue = list(map(int, input().split()))
+    pre_r = [0] * (len(red)+1)
+    pre_b = [0] * (len(blue)+1)
+    for i in range(len(red)):
+        pre_r[i+1] = pre_r[i] + red[i]
+    for i in range(len(blue)):
+        pre_b[i+1] = pre_b[i] + blue[i]
+ 
+    maximum = max(pre_r) + max(pre_b)
+    if maximum > 0:
+        print(maximum)
+    else:
+        print(0)
