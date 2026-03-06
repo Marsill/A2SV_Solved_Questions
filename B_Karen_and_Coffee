@@ -1,0 +1,26 @@
+n, k, q = map(int, input().split())
+
+MAX = 200000
+diff = [0] * (MAX + 2)
+
+for _ in range(n):
+    l, r = map(int, input().split())
+    diff[l] += 1
+    diff[r+1] -= 1
+
+freq = [0]*(MAX+2)
+curr = 0
+
+for i in range(1, MAX+1):
+    curr += diff[i]
+    if curr >= k:
+        freq[i] = 1
+
+prefix = [0]*(MAX+2)
+
+for i in range(1, MAX+1):
+    prefix[i] = prefix[i-1] + freq[i]
+
+for _ in range(q):
+    a, b = map(int, input().split())
+    print(prefix[b] - prefix[a-1])
