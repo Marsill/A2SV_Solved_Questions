@@ -3,14 +3,14 @@ class Solution:
         ho.sort()
         he.sort()
         ans = float('-inf')
-        he.append(float('inf'))
-        for house in ho:
-            idx = bisect_left(he, house)
-            mine = float('inf')
-            mine = min(mine, abs(house - he[idx]))
+        for n in ho:
+            idx = bisect_left(he, n)
+            yene = float('inf')
+            if idx < len(he):
+                yene = min(yene, abs(he[idx] - n))
             if idx + 1 < len(he):
-                mine = min(mine, abs(house - he[idx + 1]))
+                yene = min(yene, abs(he[idx + 1] - n))
             if idx - 1 >= 0:
-                mine = min(mine, abs(house - he[idx - 1]))
-            ans = max(ans, mine)
+                yene = min(yene, abs(he[idx - 1] - n))
+            ans = max(ans, yene)
         return ans
