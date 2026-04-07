@@ -1,10 +1,16 @@
 class Solution:
     def hIndex(self, citations: List[int]) -> int:
-        h_max = 0
-        for h in range(1, len(citations)+1):
-            idx = bisect_left(citations, h)
-            value = len(citations) - idx
-            if value >= h:
-                h_max = h
-        return h_max
-            
+        n = len(citations)
+        l, r = 0, n - 1
+
+        if citations[-1] == 0:
+            return 0
+
+        while l <= r:
+            mid = (l + r) // 2
+            if citations[mid] >= n - mid:
+                r = mid - 1
+            else:
+                l = mid + 1
+
+        return n - l
