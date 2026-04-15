@@ -1,6 +1,6 @@
 # 476B-Dreamoon-and-WiFi
 
-**Problem:** [476B-Dreamoon-and-WiFi](https://codeforces.com/problemset/problem/476/B)
+**Problem:** [476B-Dreamoon-and-WiFi](https://codeforces.com/contest/476/problem/B)
 
 **time limit per test:** 1 second
 
